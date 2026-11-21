@@ -1,7 +1,5 @@
 # Mobile App End-to-End Skills
 
-[![tests](https://github.com/MEMEO-PRO/mobile_app_end_to_end_skills/actions/workflows/tests.yml/badge.svg)](https://github.com/MEMEO-PRO/mobile_app_end_to_end_skills/actions/workflows/tests.yml)
-
 Agent skills and tools that take a mobile app from **idea to live on Google Play and the Apple App Store**, and keep it compliant afterwards. They implement the production pipeline real teams use: each phase ends with a **gate**, and nothing moves on until the gate passes. Every automated gate writes evidence, and one command collects it into a release report.
 
 Most first-time rejections come from paperwork and policy, not code: a Data safety form that doesn't match what the SDKs send, a missing account-deletion path, an unjustified permission, a missing demo account. These skills catch those before a reviewer does.
@@ -10,7 +8,7 @@ Most first-time rejections come from paperwork and policy, not code: a Data safe
 - **Eleven tools, all tested:** Python 3.9+ standard library and Bash only. No `pip install`, no Node needed to run them.
 - **Expo by default:** one TypeScript codebase produces the Android `.aab` and the iOS `.ipa`, with a native Kotlin/Swift path for apps that need heavy native work.
 - **Global compliance:** Google Play and App Store rules in detail, plus data-protection law in 45+ jurisdictions on every continent.
-- **55 automated tests:** run on Linux and macOS in CI, covering a deliberately broken app and a store-ready app.
+- **55 automated tests:** run locally in about 5 seconds, covering a deliberately broken app and a store-ready app.
 
 > Engineering guidance, not legal advice. Store rules and laws change monthly. Every reference links its source, and items marked † or "unverified" were not confirmed against an official page. Check the source before relying on a date.
 
@@ -320,8 +318,6 @@ cd tests && python3 -m unittest -v
 - **testers.py**: rule met, not enough testers, an opt-out breaking the streak, bad rows.
 - **release_report.py**: pass, failed or missing gates, manual ticks.
 - **inventory_lint.py, scaffold.py, run_gates.sh** end to end, plus integrity checks: every skill's front matter, every referenced file exists, the SDK catalog is consistent, scripts are executable.
-
-CI runs the suite on Ubuntu and macOS with Python 3.9 and 3.12 ([`.github/workflows/tests.yml`](.github/workflows/tests.yml)).
 
 ## Limits
 
