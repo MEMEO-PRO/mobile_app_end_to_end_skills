@@ -11,10 +11,33 @@ Default stack: **Expo (SDK 58) + EAS**, so one TypeScript codebase produces an A
 
 This skill is an engineering map, not legal advice. Dates and rules change monthly: re-check the linked source before relying on one. Entries marked † or "unverified" in the references were not confirmed against an official page.
 
+## Orchestration
+
+This skill is the orchestrator. Each phase hands its detailed work to a phase skill in the same repository:
+
+| Phase | Skill | Automated tool |
+|---|---|---|
+| 1 Plan · 2 Legal scoping | `app-spec` | `app-spec/scripts/inventory_lint.py` |
+| 3 Build | `app-build` | `app-build/scripts/scaffold.py`, `scripts/preflight.sh` |
+| 4 Verify quality | `app-test` | `app-test/scripts/explore_to_maestro.py` |
+| 5 Verify security | `app-secure` | `app-secure/scripts/mobsf_gate.py` |
+| 6 Compliance pack · 8 OTA route | `app-comply` | `app-comply/scripts/privacy_scan.py`, `app-comply/scripts/store_policy_check.py`, `app-comply/scripts/ota_check.py` |
+| 7 Ship · 8 Operate | `app-release` | `app-release/scripts/testers.py`, `app-release/scripts/release_report.py` |
+
+Run every automated gate at once and get the evidence pack:
+
+```bash
+bash skills/app-factory/scripts/run_gates.sh /path/to/app [--base v1.0.0] [--artifact app.aab] \
+     [--mobsf-file app.aab | --mobsf-report mobsf.json] [--explore-log explore.json] [--testers testers.csv] [--version 1.1.0]
+```
+
+It writes `reports/*.json`, the privacy-form drafts, and `reports/release-report.md`, and exits 1 if any gate fails. Every tool also runs alone (see each skill). All tools need only `bash` and `python3` (standard library).
+
 ## Files
 
 | File | Use it for |
 |---|---|
+| `scripts/run_gates.sh` | Runs every automated gate and writes the release report |
 | `references/runbook.md` | The 17 build steps with exact commands, example config and a "done when" line each |
 | `references/overview.md` | How production teams build apps: stages, quality checks, security checks (MASVS), store requirements, the Expo path, release thresholds, existing open-source skills |
 | `references/compliance.md` | Every document and page to publish, Google Play and Apple rules in detail, EU / US / India law, upcoming deadlines |

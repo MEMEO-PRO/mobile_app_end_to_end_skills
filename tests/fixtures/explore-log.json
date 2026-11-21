@@ -1,0 +1,26 @@
+{
+  "app_id": "in.memeo.goodbudget",
+  "platform": "android",
+  "device": "Pixel 4a (API 33, 3 GB RAM)",
+  "build": "1.0.0 (12) preview",
+  "steps": [
+    {"action": "launch", "screen": "Welcome"},
+    {"action": "tap", "text": "Sign in", "screen": "Sign in"},
+    {"action": "tap", "id": "email"},
+    {"action": "type", "text": "demo@goodbudget.app"},
+    {"action": "tap", "id": "password"},
+    {"action": "type", "text": "demo-password"},
+    {"action": "tap", "text": "Continue", "screen": "Home"},
+    {"action": "tap", "text": "Add expense", "screen": "Add expense"},
+    {"action": "tap", "point": [540, 1650]},
+    {"action": "type", "text": "-12.50",
+     "event": {"type": "error", "message": "Negative amount accepted and saved", "expected_text": "Enter an amount above 0", "screenshot": "shots/negative.png"}},
+    {"action": "back", "screen": "Home"},
+    {"action": "swipe", "direction": "up"},
+    {"action": "tap", "text": "Scan receipt", "screen": "Camera",
+     "event": {"type": "crash", "message": "App closes when camera permission is denied", "log": "logs/crash-camera.txt"}},
+    {"action": "launch", "screen": "Home"},
+    {"action": "tap", "text": "Settings", "screen": "Settings"},
+    {"action": "assert", "text": "Delete account"}
+  ]
+}

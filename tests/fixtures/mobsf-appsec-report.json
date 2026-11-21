@@ -1,0 +1,23 @@
+{
+  "app_name": "Bad Budget",
+  "package_name": "com.example.bad",
+  "appsec": {
+    "security_score": 42,
+    "high": [
+      {"title": "App allows cleartext traffic", "description": "android:usesCleartextTraffic=true lets the app send data over HTTP.", "section": "manifest"},
+      {"title": "Hardcoded secret found", "description": "A Stripe live key literal was found in the JS bundle.", "section": "code"},
+      {"title": "Debug enabled for App", "description": "android:debuggable is true.", "section": "manifest"}
+    ],
+    "warning": [
+      {"title": "App uses SharedPreferences to store data in plain text", "description": "Sensitive values written to SharedPreferences.", "section": "code"},
+      {"title": "Activity is exported without permission", "description": "com.example.bad.DeepLinkActivity is exported.", "section": "manifest"}
+    ],
+    "info": [
+      {"title": "App can read/write to External Storage", "description": "Any app can read data written to External Storage.", "section": "code"}
+    ],
+    "secure": [
+      {"title": "App uses Android Keystore", "description": "", "section": "code"}
+    ],
+    "hotspot": []
+  }
+}

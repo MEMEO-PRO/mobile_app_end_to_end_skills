@@ -1,0 +1,27 @@
+{
+  "app_name": "Bad Budget",
+  "security_score": 35,
+  "code_analysis": {
+    "findings": {
+      "android_insecure_ecb": {
+        "metadata": {"description": "The App uses ECB mode in Cryptographic encryption algorithm.", "severity": "high", "masvs": "MSTG-CRYPTO-2", "cwe": "CWE-327"},
+        "files": {"com/example/Crypto.java": "12"}
+      },
+      "android_logging": {
+        "metadata": {"description": "The App logs information. Sensitive information should never be logged.", "severity": "info", "masvs": "MSTG-STORAGE-3"},
+        "files": {"com/example/Log.java": "5"}
+      }
+    }
+  },
+  "manifest_analysis": {
+    "manifest_findings": [
+      {"rule": "exported_activity", "title": "Activity (com.example.Deep) is not Protected.", "severity": "warning", "description": "An Activity is exported and can be launched by any app."}
+    ]
+  },
+  "network_security": {
+    "network_findings": [
+      {"scope": ["*"], "severity": "high", "description": "Base config is configured to trust user installed certificates."}
+    ]
+  },
+  "trackers": {"trackers": [{"name": "Google AdMob", "categories": ["Advertisement"]}]}
+}

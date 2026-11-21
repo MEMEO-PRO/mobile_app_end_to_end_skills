@@ -1,0 +1,1 @@
+{"expo":{"name":"Bad","ios":{"bundleIdentifier":"com.example.bad","infoPlist":{"NSCameraUsageDescription":"","NSAllowsArbitraryLoads":true}},"android":{"package":"com.example.bad","permissions":["READ_SMS","ACCESS_BACKGROUND_LOCATION"]},"plugins":[["expo-build-properties",{"android":{"targetSdkVersion":34}}]]}}

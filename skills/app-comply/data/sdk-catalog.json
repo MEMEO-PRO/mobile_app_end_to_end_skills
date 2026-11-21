@@ -1,0 +1,282 @@
+{
+  "_about": "What common React Native / Expo SDKs collect, mapped to Google Play Data safety categories and Apple privacy-label types. Defaults reflect each SDK's standard setup as documented by its vendor; verify against your configuration and the vendor's own Data safety / privacy-label guidance. shared=false means the vendor acts as your service provider (Play does not count that as sharing).",
+  "_version": "2026-11-21",
+  "sdks": {
+    "@sentry/react-native": {
+      "name": "Sentry", "domains": ["sentry.io", "ingest.sentry.io"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Crash logs", "play": "App info and performance / Crash logs", "apple": "Diagnostics / Crash Data", "purposes": ["App functionality", "Analytics"], "shared": false, "linked": false},
+        {"item": "Diagnostics", "play": "App info and performance / Diagnostics", "apple": "Diagnostics / Performance Data", "purposes": ["App functionality", "Analytics"], "shared": false, "linked": false},
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["App functionality"], "shared": false, "linked": false}
+      ]
+    },
+    "@bugsnag/react-native": {
+      "name": "Bugsnag", "domains": ["bugsnag.com", "sessions.bugsnag.com", "notify.bugsnag.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Crash logs", "play": "App info and performance / Crash logs", "apple": "Diagnostics / Crash Data", "purposes": ["App functionality"], "shared": false, "linked": false},
+        {"item": "Diagnostics", "play": "App info and performance / Diagnostics", "apple": "Diagnostics / Performance Data", "purposes": ["App functionality"], "shared": false, "linked": false}
+      ]
+    },
+    "@react-native-firebase/crashlytics": {
+      "name": "Firebase Crashlytics", "domains": ["firebasecrashlyticssymbols.googleapis.com", "crashlyticsreports-pa.googleapis.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Crash logs", "play": "App info and performance / Crash logs", "apple": "Diagnostics / Crash Data", "purposes": ["App functionality", "Analytics"], "shared": false, "linked": false},
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["App functionality"], "shared": false, "linked": false}
+      ]
+    },
+    "@react-native-firebase/analytics": {
+      "name": "Google Analytics for Firebase", "domains": ["app-measurement.com", "firebase-settings.crashlytics.com", "firebaseinstallations.googleapis.com"], "privacy_manifest": true, "tracking": false,
+      "required_reason": ["NSPrivacyAccessedAPICategoryUserDefaults"],
+      "data": [
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Product Interaction", "purposes": ["Analytics"], "shared": false, "linked": false},
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Analytics"], "shared": false, "linked": false},
+        {"item": "Approximate location", "play": "Location / Approximate location", "apple": "Location / Coarse Location", "purposes": ["Analytics"], "shared": false, "linked": false, "note": "Derived from IP address"}
+      ]
+    },
+    "@react-native-firebase/messaging": {
+      "name": "Firebase Cloud Messaging", "domains": ["fcm.googleapis.com", "firebaseinstallations.googleapis.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["App functionality"], "shared": false, "linked": true, "note": "Push token"}
+      ]
+    },
+    "@react-native-firebase/auth": {
+      "name": "Firebase Authentication", "domains": ["identitytoolkit.googleapis.com", "securetoken.googleapis.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Email address", "play": "Personal info / Email address", "apple": "Contact Info / Email Address", "purposes": ["App functionality", "Account management"], "shared": false, "linked": true},
+        {"item": "User IDs", "play": "Personal info / User IDs", "apple": "Identifiers / User ID", "purposes": ["App functionality", "Account management"], "shared": false, "linked": true}
+      ]
+    },
+    "@supabase/supabase-js": {
+      "name": "Supabase", "domains": ["supabase.co", "supabase.in"], "privacy_manifest": false, "tracking": false,
+      "data": [
+        {"item": "Email address", "play": "Personal info / Email address", "apple": "Contact Info / Email Address", "purposes": ["App functionality", "Account management"], "shared": false, "linked": true, "note": "If Supabase Auth is used"},
+        {"item": "User IDs", "play": "Personal info / User IDs", "apple": "Identifiers / User ID", "purposes": ["App functionality", "Account management"], "shared": false, "linked": true}
+      ]
+    },
+    "@clerk/clerk-expo": {
+      "name": "Clerk", "domains": ["clerk.com", "clerk.accounts.dev"], "privacy_manifest": false, "tracking": false,
+      "data": [
+        {"item": "Email address", "play": "Personal info / Email address", "apple": "Contact Info / Email Address", "purposes": ["App functionality", "Account management"], "shared": false, "linked": true},
+        {"item": "Name", "play": "Personal info / Name", "apple": "Contact Info / Name", "purposes": ["App functionality", "Account management"], "shared": false, "linked": true},
+        {"item": "User IDs", "play": "Personal info / User IDs", "apple": "Identifiers / User ID", "purposes": ["Account management"], "shared": false, "linked": true}
+      ]
+    },
+    "@react-native-google-signin/google-signin": {
+      "name": "Google Sign-In", "domains": ["accounts.google.com", "oauth2.googleapis.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Email address", "play": "Personal info / Email address", "apple": "Contact Info / Email Address", "purposes": ["Account management"], "shared": false, "linked": true},
+        {"item": "Name", "play": "Personal info / Name", "apple": "Contact Info / Name", "purposes": ["Account management"], "shared": false, "linked": true}
+      ]
+    },
+    "expo-apple-authentication": {
+      "name": "Sign in with Apple", "domains": ["appleid.apple.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Email address", "play": "Personal info / Email address", "apple": "Contact Info / Email Address", "purposes": ["Account management"], "shared": false, "linked": true},
+        {"item": "Name", "play": "Personal info / Name", "apple": "Contact Info / Name", "purposes": ["Account management"], "shared": false, "linked": true}
+      ]
+    },
+    "expo-notifications": {
+      "name": "Expo Notifications", "domains": ["exp.host", "expo.dev"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["App functionality"], "shared": false, "linked": true, "note": "Push token"}
+      ]
+    },
+    "onesignal-react-native": {
+      "name": "OneSignal", "domains": ["onesignal.com", "api.onesignal.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["App functionality", "Developer communications"], "shared": false, "linked": true},
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Product Interaction", "purposes": ["Analytics"], "shared": false, "linked": true}
+      ]
+    },
+    "react-native-onesignal": {"alias": "onesignal-react-native"},
+    "expo-location": {
+      "name": "Expo Location (on-device API)", "domains": [], "privacy_manifest": true, "tracking": false, "on_device": true,
+      "data": [
+        {"item": "Precise location", "play": "Location / Precise location", "apple": "Location / Precise Location", "purposes": ["App functionality"], "shared": false, "linked": true, "note": "Only if your code sends it off the device"}
+      ]
+    },
+    "expo-contacts": {
+      "name": "Expo Contacts (on-device API)", "domains": [], "privacy_manifest": true, "tracking": false, "on_device": true,
+      "data": [
+        {"item": "Contacts", "play": "Contacts / Contacts", "apple": "Contacts / Contacts", "purposes": ["App functionality"], "shared": false, "linked": true, "note": "Only if your code sends it off the device"}
+      ]
+    },
+    "expo-image-picker": {
+      "name": "Expo Image Picker (on-device API)", "domains": [], "privacy_manifest": true, "tracking": false, "on_device": true,
+      "data": [
+        {"item": "Photos", "play": "Photos and videos / Photos", "apple": "User Content / Photos or Videos", "purposes": ["App functionality"], "shared": false, "linked": true, "note": "Only if uploaded"}
+      ]
+    },
+    "expo-camera": {
+      "name": "Expo Camera (on-device API)", "domains": [], "privacy_manifest": true, "tracking": false, "on_device": true,
+      "data": [
+        {"item": "Photos", "play": "Photos and videos / Photos", "apple": "User Content / Photos or Videos", "purposes": ["App functionality"], "shared": false, "linked": true, "note": "Only if uploaded"}
+      ]
+    },
+    "expo-audio": {
+      "name": "Expo Audio (on-device API)", "domains": [], "privacy_manifest": true, "tracking": false, "on_device": true,
+      "data": [
+        {"item": "Voice or sound recordings", "play": "Audio / Voice or sound recordings", "apple": "User Content / Audio Data", "purposes": ["App functionality"], "shared": false, "linked": true, "note": "Only if uploaded"}
+      ]
+    },
+    "react-native-google-mobile-ads": {
+      "name": "Google Mobile Ads (AdMob)", "domains": ["googleads.g.doubleclick.net", "pagead2.googlesyndication.com", "googleadservices.com"], "privacy_manifest": true, "tracking": true,
+      "data": [
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Advertising or marketing", "Analytics", "Fraud prevention, security, and compliance"], "shared": true, "linked": false},
+        {"item": "Approximate location", "play": "Location / Approximate location", "apple": "Location / Coarse Location", "purposes": ["Advertising or marketing"], "shared": true, "linked": false},
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Advertising Data", "purposes": ["Advertising or marketing", "Analytics"], "shared": true, "linked": false},
+        {"item": "Diagnostics", "play": "App info and performance / Diagnostics", "apple": "Diagnostics / Performance Data", "purposes": ["Analytics"], "shared": true, "linked": false}
+      ]
+    },
+    "react-native-fbsdk-next": {
+      "name": "Meta (Facebook) SDK", "domains": ["graph.facebook.com", "facebook.com"], "privacy_manifest": true, "tracking": true,
+      "data": [
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Advertising or marketing", "Analytics"], "shared": true, "linked": false},
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Advertising Data", "purposes": ["Advertising or marketing", "Analytics"], "shared": true, "linked": false}
+      ]
+    },
+    "react-native-appsflyer": {
+      "name": "AppsFlyer", "domains": ["appsflyer.com", "appsflyersdk.com"], "privacy_manifest": true, "tracking": true,
+      "data": [
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Advertising or marketing", "Analytics"], "shared": true, "linked": false},
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Advertising Data", "purposes": ["Advertising or marketing", "Analytics"], "shared": true, "linked": false}
+      ]
+    },
+    "@adjust/react-native-sdk": {
+      "name": "Adjust", "domains": ["adjust.com", "adjust.net.in"], "privacy_manifest": true, "tracking": true,
+      "data": [
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Advertising or marketing", "Analytics"], "shared": true, "linked": false},
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Advertising Data", "purposes": ["Advertising or marketing", "Analytics"], "shared": true, "linked": false}
+      ]
+    },
+    "react-native-branch": {
+      "name": "Branch", "domains": ["branch.io", "api2.branch.io", "app.link"], "privacy_manifest": true, "tracking": true,
+      "data": [
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Advertising or marketing", "Analytics"], "shared": true, "linked": false},
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Product Interaction", "purposes": ["Analytics"], "shared": false, "linked": false}
+      ]
+    },
+    "@amplitude/analytics-react-native": {
+      "name": "Amplitude", "domains": ["api2.amplitude.com", "amplitude.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Product Interaction", "purposes": ["Analytics"], "shared": false, "linked": true},
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Analytics"], "shared": false, "linked": true}
+      ]
+    },
+    "mixpanel-react-native": {
+      "name": "Mixpanel", "domains": ["api.mixpanel.com", "api-eu.mixpanel.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Product Interaction", "purposes": ["Analytics"], "shared": false, "linked": true},
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Analytics"], "shared": false, "linked": true}
+      ]
+    },
+    "posthog-react-native": {
+      "name": "PostHog", "domains": ["us.i.posthog.com", "eu.i.posthog.com", "posthog.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Product Interaction", "purposes": ["Analytics"], "shared": false, "linked": true},
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Analytics"], "shared": false, "linked": true}
+      ]
+    },
+    "@segment/analytics-react-native": {
+      "name": "Segment", "domains": ["api.segment.io", "cdn-settings.segment.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "App interactions", "play": "App activity / App interactions", "apple": "Usage Data / Product Interaction", "purposes": ["Analytics"], "shared": false, "linked": true},
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Analytics"], "shared": false, "linked": true}
+      ]
+    },
+    "react-native-purchases": {
+      "name": "RevenueCat", "domains": ["api.revenuecat.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "Purchase history", "play": "Financial info / Purchase history", "apple": "Purchases / Purchase History", "purposes": ["App functionality"], "shared": false, "linked": true},
+        {"item": "User IDs", "play": "Personal info / User IDs", "apple": "Identifiers / User ID", "purposes": ["App functionality"], "shared": false, "linked": true}
+      ]
+    },
+    "react-native-iap": {
+      "name": "In-app purchases (store billing)", "domains": [], "privacy_manifest": false, "tracking": false,
+      "data": [
+        {"item": "Purchase history", "play": "Financial info / Purchase history", "apple": "Purchases / Purchase History", "purposes": ["App functionality"], "shared": false, "linked": true, "note": "Only if you send receipts to your server"}
+      ]
+    },
+    "@stripe/stripe-react-native": {
+      "name": "Stripe", "domains": ["api.stripe.com", "m.stripe.com", "r.stripe.com"], "privacy_manifest": true, "tracking": false,
+      "data": [
+        {"item": "User payment info", "play": "Financial info / User payment info", "apple": "Financial Info / Payment Info", "purposes": ["App functionality", "Fraud prevention, security, and compliance"], "shared": false, "linked": true},
+        {"item": "Purchase history", "play": "Financial info / Purchase history", "apple": "Purchases / Purchase History", "purposes": ["App functionality"], "shared": false, "linked": true},
+        {"item": "Device or other IDs", "play": "Device or other IDs / Device or other IDs", "apple": "Identifiers / Device ID", "purposes": ["Fraud prevention, security, and compliance"], "shared": false, "linked": true}
+      ]
+    },
+    "react-native-razorpay": {
+      "name": "Razorpay", "domains": ["api.razorpay.com", "checkout.razorpay.com"], "privacy_manifest": false, "tracking": false,
+      "data": [
+        {"item": "User payment info", "play": "Financial info / User payment info", "apple": "Financial Info / Payment Info", "purposes": ["App functionality", "Fraud prevention, security, and compliance"], "shared": false, "linked": true},
+        {"item": "Phone number", "play": "Personal info / Phone number", "apple": "Contact Info / Phone Number", "purposes": ["App functionality"], "shared": false, "linked": true},
+        {"item": "Email address", "play": "Personal info / Email address", "apple": "Contact Info / Email Address", "purposes": ["App functionality"], "shared": false, "linked": true}
+      ]
+    },
+    "openai": {
+      "name": "OpenAI API", "domains": ["api.openai.com"], "privacy_manifest": false, "tracking": false, "ai": true,
+      "data": [
+        {"item": "Other user-generated content", "play": "App activity / Other user-generated content", "apple": "User Content / Other User Content", "purposes": ["App functionality"], "shared": true, "linked": false, "note": "Prompts sent to a third-party AI: consent screen required (Apple 5.1.2(i))"}
+      ]
+    },
+    "@anthropic-ai/sdk": {
+      "name": "Anthropic API", "domains": ["api.anthropic.com"], "privacy_manifest": false, "tracking": false, "ai": true,
+      "data": [
+        {"item": "Other user-generated content", "play": "App activity / Other user-generated content", "apple": "User Content / Other User Content", "purposes": ["App functionality"], "shared": true, "linked": false, "note": "Prompts sent to a third-party AI: consent screen required (Apple 5.1.2(i))"}
+      ]
+    },
+    "@google/genai": {
+      "name": "Google Gemini API", "domains": ["generativelanguage.googleapis.com"], "privacy_manifest": false, "tracking": false, "ai": true,
+      "data": [
+        {"item": "Other user-generated content", "play": "App activity / Other user-generated content", "apple": "User Content / Other User Content", "purposes": ["App functionality"], "shared": true, "linked": false, "note": "Prompts sent to a third-party AI: consent screen required (Apple 5.1.2(i))"}
+      ]
+    },
+    "@google/generative-ai": {"alias": "@google/genai"},
+    "@react-native-async-storage/async-storage": {
+      "name": "AsyncStorage (on-device)", "domains": [], "privacy_manifest": true, "tracking": false, "on_device": true,
+      "required_reason": ["NSPrivacyAccessedAPICategoryFileTimestamp", "NSPrivacyAccessedAPICategoryUserDefaults"], "data": []
+    },
+    "expo-file-system": {
+      "name": "Expo FileSystem (on-device)", "domains": [], "privacy_manifest": true, "tracking": false, "on_device": true,
+      "required_reason": ["NSPrivacyAccessedAPICategoryFileTimestamp", "NSPrivacyAccessedAPICategoryDiskSpace"], "data": []
+    },
+    "expo-constants": {
+      "name": "Expo Constants (on-device)", "domains": [], "privacy_manifest": true, "tracking": false, "on_device": true,
+      "required_reason": ["NSPrivacyAccessedAPICategoryUserDefaults"], "data": []
+    }
+  },
+  "permissions": {
+    "ACCESS_FINE_LOCATION": "Precise location",
+    "ACCESS_COARSE_LOCATION": "Approximate location",
+    "ACCESS_BACKGROUND_LOCATION": "Precise location",
+    "READ_CONTACTS": "Contacts",
+    "RECORD_AUDIO": "Voice or sound recordings",
+    "CAMERA": "Photos",
+    "READ_MEDIA_IMAGES": "Photos",
+    "READ_MEDIA_VIDEO": "Videos",
+    "READ_CALENDAR": "Calendar events",
+    "READ_SMS": "SMS or MMS",
+    "BODY_SENSORS": "Health info",
+    "ACTIVITY_RECOGNITION": "Fitness info",
+    "NSLocationWhenInUseUsageDescription": "Precise location",
+    "NSLocationAlwaysAndWhenInUseUsageDescription": "Precise location",
+    "NSContactsUsageDescription": "Contacts",
+    "NSMicrophoneUsageDescription": "Voice or sound recordings",
+    "NSCameraUsageDescription": "Photos",
+    "NSPhotoLibraryUsageDescription": "Photos",
+    "NSCalendarsUsageDescription": "Calendar events",
+    "NSHealthShareUsageDescription": "Health info"
+  },
+  "items": {
+    "Precise location": {"play": "Location / Precise location", "apple": "Location / Precise Location"},
+    "Approximate location": {"play": "Location / Approximate location", "apple": "Location / Coarse Location"},
+    "Contacts": {"play": "Contacts / Contacts", "apple": "Contacts / Contacts"},
+    "Voice or sound recordings": {"play": "Audio / Voice or sound recordings", "apple": "User Content / Audio Data"},
+    "Photos": {"play": "Photos and videos / Photos", "apple": "User Content / Photos or Videos"},
+    "Videos": {"play": "Photos and videos / Videos", "apple": "User Content / Photos or Videos"},
+    "Calendar events": {"play": "Calendar / Calendar events", "apple": "User Content / Other User Content"},
+    "SMS or MMS": {"play": "Messages / SMS or MMS", "apple": "User Content / Emails or Text Messages"},
+    "Health info": {"play": "Health and fitness / Health info", "apple": "Health & Fitness / Health"},
+    "Fitness info": {"play": "Health and fitness / Fitness info", "apple": "Health & Fitness / Fitness"}
+  }
+}
